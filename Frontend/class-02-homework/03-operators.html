@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+        <style>
+            body{
+                padding: 30px;
+            }
+        </style>
+</head>
+<body>
+
+
+    <!--start JavaScript-->
+    <script>
+        let a = 10,
+            b = 3,
+            c = 15;
+        let d = '5',
+            e ='my name',
+            f ='is chris';
+
+        console.groupCollapsed('Addition');
+            console.log(a + b); //13
+            console.log(a+c); //25
+            console.log(e+' '+f); // my name is chris
+            console.log(a+d); //comes out as a string
+            console.log(e+' '+'is batman')
+        console.groupEnd();
+
+        console.groupCollapsed('Multiplication');
+            console.log(a*3); //30
+            console.log(a*b); //30
+            console.log(b*c); //45
+        console.groupEnd();
+
+        console.group('Incrementing');
+            console.log(a+1); //10
+            console.log(a++); //10, using ++ is the same as +1
+            console.log(c += a) //26
+        console.groupEnd();
+        a++; //same as a +1, can't use on a const since it changes the value
+        ++a; //
+        b--;
+        --b;
+        c += a; //same as c= c+a
+        e += f; //same as e=e+f
+
+
+    </script>
+</body>
+</html>

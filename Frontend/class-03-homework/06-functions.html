@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+        <style>
+            body{
+                padding: 30px;
+            }
+        </style>
+</head>
+<body>
+
+    <div class="jumbotron text-center">
+        <button type="button" class="btn btn-danger" onclick ="saySomething('This is the first button')">
+            My Button
+        </button>
+        <button type="button" class="btn btn-danger" onclick = "saySomething('This is the second button')">
+            My 2nd Button
+        </button>
+    </div>
+
+    <!--start JavaScript-->
+    <script>
+
+        //functions are values that can be stored into vairables
+
+        function saySomething(message = 'goodbye', whisper = false ){ //default message is goodbye
+
+            if (whisper) {
+                console.log(`%c${message}`, 'font-size:5px'); //%c passes in some styles
+            } else {
+                console.log (message);
+            }
+
+            console.log(message);
+        }
+        saySomething('hello', true); //putting new value in () changes value of message
+        saySomething('my name is chris', true);
+        saySomething();
+
+        // function squared (a){
+        //     return a*a;
+        // }
+
+        // const newSquared = squared(3);
+        // console.log(newSquared);
+
+        //JavaScript functions can be stored in a variable
+        // const squared = function (a){}      same as line below
+        const squared = (a) => {    //=> simplifies the syntax
+            return a*a;
+        }
+
+        const otherSquared = squared;
+
+        punch();
+
+        //hoisting - JS will look through code and move it to the top to call it anywhere in the code
+        function punch() {
+            console.log('punch here!');
+        }
+    </script>
+</body>
+</html>

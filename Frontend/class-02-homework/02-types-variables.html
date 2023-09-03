@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+        <style>
+            body{
+                padding: 30px;
+            }
+        </style>
+</head>
+<body>
+
+
+    <!--start JavaScript-->
+    <script>
+        //strings
+        'this is my string';
+        'my second string';
+        "my name is chris";
+
+        //numbers - they are considered floats (decimals)
+        10;
+        500;
+        3.14;
+
+        //booleans - can evaluate if a variable is truthy and falsy
+        true;
+        false;
+        //console.log(Boolean())
+
+        //specials
+        undefined; //if a variable has been created but nothing has been assigned to the variable
+        null; //there is no value, may be defined
+        NaN; //not a number
+
+        //objects
+        const user = { //associated key(name/username) and value('Chris'/'chrisoncode') with variable(user)
+            name: 'Chris', //needs a key and a value, name is key, 'chris' is value
+            username: 'chrisoncode'
+        }; 
+
+        //to call - console.log(user.name) - would give us chrisoncode
+
+        //arrays - way to store multiple items, a list
+        const users = ['chris','nick','holly'];
+        const luckyNumbers = [1,43,54,132];
+        const whatever = ['chris', 1, 'holly'];
+
+        //to call console.log(users[1])  would give us nick
+
+        
+        //to store objects in an array:
+        const superUsers = [
+            {name:'chris'},
+            {name:'nick'},
+            {name:'holly'}
+        ]
+
+        //to call console.log(superUsers[2].name) would give us holly
+
+
+        //declaring variables
+        var thing = 'first'; //old way, do not use
+
+        //const otherThing = 'second'; //const - can not reasign, can asign if you make it an object, then can reassign one of the properties in the object (like name in the object below)
+        const otherThing = {
+            name: 'chris'
+        }
+
+        let newThing = 'third'; //reassignable
+
+        //============================
+        let myVariable; //can set variable at the top of the code to have it ready to use to declare value later
+
+        myVariable = 'something';
+
+    </script>
+</body>
+</html>

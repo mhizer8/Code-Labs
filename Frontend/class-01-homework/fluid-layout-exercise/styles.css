@@ -1,0 +1,32 @@
+body{
+    background-color: beige;
+    color: darkslategrey;
+}
+
+h1{
+    background-color: rgb(88.24, 67.84, .39);
+    color: white;
+}
+
+.services{
+    width: 25%;
+    float: left;
+}
+
+.testimonials{
+    width: 25%;
+    float: right;
+}
+
+.main-content{
+    width: 50%;
+    float: left;
+}
+
+.footer{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px){
+    
+}

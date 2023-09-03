@@ -1,0 +1,13 @@
+.header{
+    position: relative;
+    top: 0;
+    left: 10px;
+    color: black;
+    z-index: 10;
+}
+
+.container img{
+    position: absolute;
+    width: 100%;
+    opacity: 75%;
+}
