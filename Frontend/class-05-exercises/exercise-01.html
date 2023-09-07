@@ -1,0 +1,27 @@
+<!-- Given the code snippet. Explain what scopes are in this current context of the code. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outerFunction() {
+            let outerVar = "I'm outside!";
+
+            function innerFunction() {
+                let innerVar = "I'm inside!";
+                console.log(outerVar); // Can we access outerVar? -- yes, local scopes
+                console.log(innerVar); // Can we access innerVar? -- yes
+            }
+
+            innerFunction();
+        }
+
+        outerFunction();
+    </script>
+</body>
+</html>
