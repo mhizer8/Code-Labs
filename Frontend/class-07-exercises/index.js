@@ -133,16 +133,22 @@ class Subject {
     }
 
 	async fetchAndNotify() {
-		const url = await fetch ('https://jsonplaceholder.typicode.com/posts?_limit=10');
-        try{
-            const data = await url.json();
-            this.notifyObservers(data);
-            console.log('ASYNC/AWAIT: ', data)
-        }catch (data) {
-            console.log('err: ', data)
-        }
+		// const url = await fetch ('https://jsonplaceholder.typicode.com/posts?_limit=10');
+        // try{
+        //     const data = await url.json();
+        //     this.notifyObservers(data);
+        //     console.log('ASYNC/AWAIT: ', data)
+        // }catch (data) {
+        //     console.log('err: ', data)
+        // }
 
 		// TODO: Fetch data from the API and notify observers
+        const url = 'https://jsonplaceholder.typicode.com/posts?_limit=10';
+        const response = await fetch(url);
+        const data = await response.json();
+        const singleItem = data[0];
+        const { title } = singleItem;
+        console.log(title);
 	}
 }
 
@@ -150,15 +156,8 @@ class Observer {
 	async update() {
 		// TODO: Handle the received data. If it's an error message, log it.
 		// If it's the list of posts, destructure and log the title of the first post.
-        const url = await fetch ('https://jsonplaceholder.typicode.com/posts?_limit=10');
-        return url.json();
-        try{
-            // const data = url.json;
-            const {title} = url
-            console.log('Title: ', title)
-        }catch (data) {
-            console.log('err: ', data)
-        }
+      
+        
 	}
 }
 
