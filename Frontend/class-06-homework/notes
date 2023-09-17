@@ -1,0 +1,72 @@
+Design Patterns - a general reusable solution to a commonly reoccuring problem within a given context in software design.
+    formatlized best practices that a programmer can use to solve common problems when designing an application or system
+
+
+Builder Pattern
+    useful when you need to create objects that have many different working parts that need to all come together to create one single object
+example:
+
+class Address{
+    constructor(zip, street) {
+        this.zip = zip
+        this.street = street
+    }
+}
+class User{
+    constructor(name, age, phone, address){
+        this.name = name
+        this.age = age
+        this.phone = phone
+        this.address = address
+    }
+}
+
+const user = new User('Bob');  prints  User {name:'Bob', age: undefined, phone: undefined, address: undefined}
+
+const user = new User('Bob', undefined, undefined, new Address('1', 'Main'));   prints User {name:'Bob', age: undefined, phone: undefined, address: street: "Main", zip:'1'}
+
+console.log(user); 
+
+Two ways to make a builder:
+
+OG Way - replaces lines 24-28
+
+class UserBuilder{
+    constructor(user) {
+        this.user = new User(name)
+    }
+    setAge(age) {
+        this.user.age = age
+        return this
+    }
+    setPhone(phone) {
+        this.user.phone = phone
+        return this
+    }
+    setAddress(address) {
+        this.user.address = address
+        return this
+    }
+    build() {
+        return this.user
+    }
+}
+
+let builder = new UserBuilder('Bob').build()     prints User{name:'Bob'}    does not set other fields since there is no input
+let builder = new UserBuilder('Bob').setAge(10).build()     prints User{name:'Bob', age: 10}    can chain them together since it returns the same object back at the end of each statement
+
+
+JavaScript way - makes changes to class itself. 
+
+class User{
+    constructor(name, {age, phone = '1234567890', address} = {}){         can make fields optional by passing them as a JSON object using {}    
+                                                    ={} makes it so if there is no response to that field it will default to an empty Object
+                                                    puting = '1234567890' made it so that is the default value if it does not get filled in
+        this.name = name
+        this.age = age
+        this.phone = phone
+        this.address = address
+    }
+}
+
+const user = new User('Bob', {age:10, address: new Address ('1', 'Main')})      prints {name:'Bob', age: 10, phone: undefined, address: undefined{zip: '1', street: 'Main'}}
