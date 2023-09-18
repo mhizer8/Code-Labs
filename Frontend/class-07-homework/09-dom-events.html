@@ -1,0 +1,89 @@
+<!-- DOM is Document Object Model - the document that holds all of our HTML-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+        <style>
+            body{padding: 30px;}
+        </style>
+</head>
+<body>
+    <!-- Adding event listeners to document -->
+    <!-- Option 1  -->
+    <div class="jumbotron text-center">
+        <button class="btn btn-danger" onclick="goCoocoo()">
+            Go Coocoo
+        </button>
+    </div>
+
+    <!-- Option 2 - use events directly on the element in js -->
+    <div class="jumbotron text-center">
+        <button class="btn btn-danger coffee-btn">
+            Get Coffee
+        </button>
+        <button class="btn btn-danger coffee-btn">
+            Get Coffee
+        </button>
+        <button class="btn btn-danger coffee-btn">
+            Get Coffee
+        </button>
+    </div>
+
+    <!-- Option 3: using add event listener -->
+    <div class="jumbotron text-center">
+        <button class="btn btn-primary lala-btn">
+            Not Listening
+        </button>
+    </div>
+
+    <!-- shortcut to make div - type: .jumbotron.text-center>button.btn.btn-danger{Go Coocoo} -->
+
+
+    <!--start JavaScript-->
+    <script>
+        //1 - grab elements from the DOM
+        //2 - attach event listeners
+
+        // const body = document.querySelector('body'); //document.body would give the same result as line 21
+        // body.style.background = '#C00C00'
+        // document.body.style.backgroundColor = '#C00C00' //same as obove 2 lines
+
+    //for option 1
+        function goCoocoo() {
+            document.body.style.backgroundColor = '#C00C00'
+        }
+
+    //for option 2
+        // const coffeeButton = document.querySelector('.coffee-btn');//only calls first Coffee button
+        const coffeeButtons = document.querySelectorAll('.coffee-btn');//calls all Coffee button
+        // coffeeButton.onclick = function () {
+        //     document.body.style.backgroundColor = '#C0FFEE';
+        // }
+        // coffeeButton.onmouseenter = goCoocoo; //do not use () for goCoocoo function because they would make it imediately run, but we want it to wait for the mouse to go over the button
+        function getCoffee() {
+            document.body.style.backgroundColor = '#C0FFEE';
+        }
+        coffeeButtons.forEach(function(button){
+            button.onclick = getCoffee;
+        })
+
+    // for option 3
+        const lalaButton = document.querySelector('.lala-btn');
+
+        function notListening(){
+            document.body.style.backgroundColor = '#1A1A1A';
+        }
+        lalaButton.addEventListener('click', notListening)
+        lalaButton.addEventListener('mouseenter', goCoocoo);
+
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => button.addEventListener('mouseleave', notListening));
+
+    </script>
+</body>
+</html>
