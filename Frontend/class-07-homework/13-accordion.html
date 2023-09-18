@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+            body, .jumbotron{padding: 30px;}
+            html {
+                overflow-y: scroll;
+            }
+            body {
+                background: #EFEFEF;
+            }
+            ul {
+                margin-bottom: 0;
+            }
+            .accordian {
+                background: #FFF;
+                border-radius: 5px;
+                padding: 30px;
+            }
+
+            .question {
+                border-top: 1px solid #EEE;
+                padding: 20px;
+                cursor: pointer;
+                position: relative;
+            }
+            .question h2 {
+                font-size: 20px;
+                margin: 0;
+                color: #C00C00;
+            }
+            .question .glyphicon {
+                position: absolute;
+                right: 20px;
+                top: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+
+            }
+
+            .answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+            }
+            .answer p {
+                padding: 20px;
+            }
+
+            .accordian li.open .question .glyphicon {
+                transform: rotate(180deg);
+            }
+            .accordian li.open .answer {
+                max-height: 150px;
+            }
+
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="accordian">
+            <ul class="list-unstyled">
+                <li class="open">
+                    <div class="question">
+                        <h2>Will I be rich?</h2>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </div>
+                    <div class="answer">
+                        <p>Absolutely! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae et itaque reprehenderit possimus corporis nostrum architecto velit, ullam, labore ut adipisci nam fugit placeat accusantium delectus facilis optio ipsam. Vero!</p>
+                    </div>
+                </li>
+                <li class="open">
+                    <div class="question">
+                        <h2>What's for dinner?</h2>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </div>
+                    <div class="answer">
+                        <p>Whatever you want! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae et itaque reprehenderit possimus corporis nostrum architecto velit, ullam, labore ut adipisci nam fugit placeat accusantium delectus facilis optio ipsam. Vero!</p>
+                    </div>
+                </li>
+                <li class="open">
+                    <div class="question">
+                        <h2>Is JavaScript Awesome?</h2>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </div>
+                    <div class="answer">
+                        <p>Yes! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae et itaque reprehenderit possimus corporis nostrum architecto velit, ullam, labore ut adipisci nam fugit placeat accusantium delectus facilis optio ipsam. Vero!</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--start JavaScript-->
+    <script>
+        const accordian = document.querySelector('.accordian');
+        const items = accordian.querySelectorAll('li');
+        const questions = accordian.querySelectorAll('.question');
+
+        function toggleAccordian() {
+            const thisItem = this.parentNode
+            items.forEach(item => {
+                if (thisItem == item) {
+                    thisItem.classList.toggle('open');
+                    return;
+                }
+                item.classList.remove('open');
+            })
+        }
+
+        questions.forEach(question => question.addEventListener('click', toggleAccordian));
+    </script>
+</body>
+</html>
