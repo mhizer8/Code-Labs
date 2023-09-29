@@ -1,0 +1,23 @@
+<!-- Create a new button element with the text "Click Me".
+Append this button to the end of the body.
+Add an event listener to the button so that when it's clicked, it alerts the user with the message "Button was clicked!". -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="button" class="btn">Click Me</button>
+
+    <script>
+        const button = document.getElementById('.button');
+        button.addEventListener('click', function() {
+            alert('Button was clicked!')
+        });
+    </script>
+</body>
+</html>

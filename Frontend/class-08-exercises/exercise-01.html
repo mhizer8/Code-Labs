@@ -1,0 +1,27 @@
+<!-- Use JavaScript to select the element with an ID of "myDiv" and change its background color to "lightblue". Select all the paragraph (<p>) elements on the page and log their inner text. Starting Code: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">This is a div</div>
+    <button onclick="goBlue()">Go Blue</button> 
+    <p id="pg1">First paragraph.</p>
+    <p id="pg2">Second paragraph.</p> 
+    <script>
+        document.getElementById("myDiv").style.backgroundColor = 'lightgreen';
+        function goBlue() {
+            document.getElementById("myDiv").style.backgroundColor = 'lightblue';
+        }
+
+        const text = document.getElementById('pg1').innerText;
+        const text2 = document.getElementById('pg2').innerText;
+
+        console.log(text + ' & '+ text2);
+    </script>
+</body>
+</html>
