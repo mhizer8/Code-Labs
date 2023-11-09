@@ -1,0 +1,44 @@
+
+.task-list ::content {
+    display: block;
+    align-items: center;
+    margin:5%;
+  }
+.filter{
+  padding-bottom: 1em;
+}
+  
+.addtask{
+  display: flex;
+  justify-content: right;
+}
+.task-list-container table {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+}
+  
+table th, table td {
+  border: 1px solid #ccc;
+  padding: .25em;
+  align-items: center;
+}
+  
+table th {
+  background-color: #f0f0f0;
+}
+  
+.filter, .btn {
+  display: flex;
+}
+  
+.btn {
+  background-color: #48C15B;
+}
+
+.actions {
+  justify-content: center;
+  margin: 2px;
+}
