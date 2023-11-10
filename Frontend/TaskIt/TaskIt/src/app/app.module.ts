@@ -15,6 +15,7 @@ import { DashComponent } from './dash/dash.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { SignUpComponent } from './shared/sign-up/sign-up.component';
 import { SignInComponent } from './shared/sign-in/sign-in.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -32,15 +33,17 @@ import { SignInComponent } from './shared/sign-in/sign-in.component';
     DashComponent,
     AuthComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
 
 })

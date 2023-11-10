@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: LandingPageComponent},
   {path: 'auth', component: AuthComponent},
-  {path: 'dashboard', component: DashComponent, children:[
+  {path: 'dashboard', component: DashComponent, children:[ //need to find a way to redirect to task-list
     {path: 'list', component: TasklistComponent, children: [
         {path: 'new', component: AddTaskComponent},
         {path: ':id/edit', component: EditItemComponent},

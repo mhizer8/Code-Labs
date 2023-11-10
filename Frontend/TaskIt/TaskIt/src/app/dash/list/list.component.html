@@ -2,33 +2,30 @@
 <!-- <app-view-task></app-view-task>
 <app-edit-task></app-edit-task> -->
 
-<div class="task-list content">
-  <header>
+<div class="task-list">
+  <div class="header">
     <h1>Task List</h1>
-  </header>
   
-  <!-- Add Task Modal -->
-  <div class="addtask">
-    <app-add-task *ngIf="showAddTask.showAddTask"></app-add-task>
-    <button class="btn btn-success" (click)="showAddTask.showAddTask = true">Add Task</button>
+    <div class="addtask">
+      <app-add-task *ngIf="showAddTask.showAddTask"></app-add-task>
+      <button class="btn btn-success" (click)="showAddTask.showAddTask = true">Add Task</button>
+    </div>
+    
+    <div class="filter">
+      <label>Filter by: </label>
+      <select name="" id=""></select>
+      <select name="" id=""></select>
+    </div>
   </div>
   
-  <!-- Dropdown Filter -->
-  <div class="filter">
-    <label>Filter by: </label>
-    <select name="" id=""></select>
-    <select name="" id=""></select>
-  </div>
-  
-  <!-- Table -->
-  <div class="task-list-container table">
+  <table class="task-list-container table table-striped">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Due Date</th>
-        <th>Priority</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th scope="col">Title</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -52,5 +49,5 @@
         </td>
       </tr>
     </tbody>
-  </div>
+  </table>
   </div>
