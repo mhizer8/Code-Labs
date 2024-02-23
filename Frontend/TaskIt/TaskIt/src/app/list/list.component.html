@@ -3,34 +3,51 @@
     <h1>Task List</h1>
   </header>
   
-  <div class="addtask">
-  <app-add-task *ngIf="showAddTask.showAddTask"></app-add-task>
-  <button class="btn btn-success" (click)="showAddTask.showAddTask = true">Add Task</button>
+  <div class="heading row">
+    <div class="filters col">
+      <label>Filter by: </label>
+      <div>
+        <select name="Status" class="status-filter">
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="date"  class="form-control due-date-filter" id="date" placeholder="Due Date">      
+      </div>
+
+      <div>
+        <select name="Priority" class="priority-filter">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="addtask">
+      <app-add-task *ngIf="showAddTask.showAddTask"></app-add-task>
+      <button class="btn btn-success" (click)="showAddTask.showAddTask = true">Add Task</button>
+    </div>
   </div>
-  
-  <div class="filter">
-    <label>Filter by: </label>
-    <select name="" id="">Status</select>
-    <select name="" id="">Date</select>
-    <select name="" id="">Priority</select>
-  </div>
-  
+
   <div class="task-list-container">
     <div class="flex-grid">
       <div class="row">
-        <div class="col"><h4>Title</h4></div>
-        <div class="col"><h4>Due Date</h4></div>
-        <div class="col"><h4>Priority</h4></div>
-        <div class="col"><h4>Status</h4></div>
-        <div class="col"><h4>Actions</h4></div>
+        <div class="col header">Title</div>
+        <div class="col header">Due Date</div>
+        <div class="col header">Priority</div>
+        <div class="col header">Status</div>
+        <div class="col header">Actions</div>
       </div>
     </div>
-    <div class="row" *ngFor="let task of tasks">
-        <div class="col">{{ task.title }}</div>
-        <div class="col">{{ task.dueDate }}</div>
-        <div class="col">{{ task.priority }}</div>
-        <div class="col">{{ task.status }}</div>
-        <div class="col">
+    <div class="row tasks" *ngFor="let task of tasks">
+        <div class="col task-item">{{ task.title }}</div>
+        <div class="col task-item">{{ task.dueDate }}</div>
+        <div class="col task-item">{{ task.priority }}</div>
+        <div class="col task-item">{{ task.status }}</div>
+        <div class="col task-item">
             <!-- <a class="actions" href="#">
             <img src="../../assets/Images/view.svg" alt="view">
             </a> -->

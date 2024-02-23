@@ -4,26 +4,32 @@
       <div class="logo">
         <img src="../../assets/Images/Logo.svg"/>
       </div>
-      <div class="task-list btn btn-secondary" routerLinkActive="active" routerLink="list">Task List</div>
-      <div class="task-list btn btn-secondary" routerLinkActive="active" routerLink="kanban">Kanban Board</div>
+      <div 
+      *ngIf="isAuthenticated" 
+      class="task-list btn btn-secondary" routerLinkActive="active" routerLink="list">Task List</div>
+      <div 
+      *ngIf="isAuthenticated" 
+      class="task-list btn btn-secondary" routerLinkActive="active" routerLink="kanban">Kanban Board</div>
+      <div 
+      *ngIf="!isAuthenticated"
+      >
+        <a class="task-list btn btn-secondary" routerLink="/auth" routerLinkActive="active">Auth</a>
+      </div>
     </div>
     <div class="bottom">
       <div class="user d-flex">
         <div>
           <span>
-          <img
-          [src]="user.imagePath"
-          alt="{{ user.name }}"
-          class="img-responsive"
-          style="max-height: 50px; border-radius: 75%; align-items: center;"></span>
+            <img [src]="" alt="User Photo" class="img-responsive" style="max-height: 50px; border-radius: 75%; align-items: center;">
+          </span>
         </div>
         <div>
-            <h4 class="list-group-item-heading">{{ user.name }}</h4>
-            <p class="list-group-item-text">{{ user.email }}</p>
+            <h4 class="list-group-item-heading">username</h4>
+            <p class="list-group-item-text">user email</p>
         </div>
-        <div>
-            <a style="cursor: pointer;">
-            <img src="../../assets/Images/logout.svg" alt="log-out">
+        <div *ngIf="isAuthenticated">
+            <a style="cursor: pointer;" routerLink="/auth" routerLinkActive="active">
+              <img src="../../assets/Images/logout.svg" alt="log-out">
             </a>
         </div>
       </div>

@@ -15,7 +15,11 @@ import { DashComponent } from './dash/dash.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { SignUpComponent } from './shared/sign-up/sign-up.component';
 import { SignInComponent } from './shared/sign-in/sign-in.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
+import { AuthService } from './shared/auth/auth.service';
+import { AuthGuard } from './shared/auth/auth.guard';
+import { HTTPService } from './shared/http/http.service';
 
 
 
@@ -43,7 +47,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, AuthGuard, HTTPService, AuthService, 
+    {provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true,}
+  ],
   bootstrap: [AppComponent],
 
 })

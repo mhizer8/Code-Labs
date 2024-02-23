@@ -13,9 +13,11 @@
           <input type="text"  class="form-control" id="inputNewTaskName" maxlength="25" placeholder="Title" formControlName="title">
           <span class="help-block text-danger" *ngIf="addTaskForm.get('title')?.invalid && addTaskForm.get('title')?.touched">Please enter a valid title</span>
         </div>
+
         <div class="col-md-5">
           <input type="date"  class="form-control" id="inputNewDueDate" formControlName="date" placeholder="Due Date">
         </div>
+        
         <div class="col-7">
           <textarea type="text"  class="form-control" id="inputNewDetails" maxlength="250" placeholder="Description" style="height: 10em;" formControlName="details"></textarea>
         </div>

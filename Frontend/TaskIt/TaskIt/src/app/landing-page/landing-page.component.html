@@ -12,7 +12,7 @@
     <h5>This platform allows you to keep track of tasks professionally, domestically, and more. Sign up today to get to work!</h5>
   </div>
   <div class="col-sm">
-    <img class="demo img-responsive" src="../../assets/Images/landing-page-img 1.svg" alt="kanban" >
+    <img src="../../assets/Images/landing-page-img 1.svg" alt="kanban-example" >
   </div>
   <div class="col-sm">
     <h3>Create an account to get started today.</h3>
@@ -20,15 +20,23 @@
   
   <div class="flex-column">
     <div class="d-flex flex-row justify-content align-items-center">
-      <div class="p-2">
-        <div class="btn btn-success" routerLinkActive="active" routerLink="dashboard">Sign Up</div>
+      <!-- <div class="p-2">
+        <div class="btn btn-success" routerLinkActive="active" routerLink="./auth">Sign Up</div>
       </div>
       <div class="p-2">
-        <p> or </p>
-      </div>
+        <p> or </p>  
+      </div> -->
       <div class="p-2">
-        <div class="btn btn-success" routerLinkActive="active" routerLink="dashboard">Login</div>
+        <div class="btn btn-success" routerLinkActive="active" routerLink="./auth">Login | Sign Up</div>
       </div>
+      <!-- <button class="btn btn-primary" type="submit">
+        {{ isLoginMode ? "Sign In" : "Sign Up" }}
+      </button>
+      |
+      <button class="btn btn-primary" type="button" (click)="onSwitchAuthMode()">
+        Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+      </button> -->
     </div>
   </div>
 </div>
+

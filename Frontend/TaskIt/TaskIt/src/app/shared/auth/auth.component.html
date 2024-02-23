@@ -1,33 +1,118 @@
-<div class="row">
-    <div class="col-xs-12 col-md-6 offset-md-3">
-      <form>
-        <!-- EMAIL -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            email
-          />
-        </div>
-  
-        <!-- PASSWORD -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-          />
-        </div>
-  
-        <!-- BUTTONS -->
-        <button class="btn btn-primary mr-3">Sign Up</button>
-        
-        <button class="btn btn-primary">Login</button>
-      </form>
+<ng-container *ngIf="isLoginMode; then login; else newSignUp"></ng-container>
+  <ng-template #login >
+    <div class="container">
+      <h1>Welcome Back!</h1>
+      <p>Let's get to work.</p>
+
+    <form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      email
+      ngModel
+      required
+    />
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      minlength="6"
+      ngModel
+      required
+    />
+
+    <p>Don't have an account?</p>
+    <button class="btn btn-primary" type="submit">
+      {{ isLoginMode ? "Sign In" : "Sign Up" }}
+    </button>
+    |
+    <button class="btn btn-primary" type="button" (click)="onSwitchAuthMode()">
+      Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+    </button>
+    <!-- <a style="cursor: pointer;" (click)="onSwitchAuthMode()">
+      Sign Up
+    </a>
+    <button class="btn btn-success" type="submit" [disabled]="!authFormRef.valid">
+      Submit
+    </button> -->
+    
+
+
+  </form></div>
+  <p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+  </ng-template>
+
+
+<ng-template #newSignUp>
+  <div class="container">
+    <div class="d-flex flex-row align-items-center">
+      <div class="p-2">
+        <H2>Welcome to</H2>    
+      </div>
+      <div class="p-2">      
+        <img src="../../assets/Images/Logo.svg" alt="TaskIt">
+      </div>
     </div>
-  </div>
+    <p>Sign up to get things done.</p>
+
+  <form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
+
+    <label for="firstName">First Name</label>
+    <input id="firstName"
+    name="firstName"
+    class="form-control"
+    ngModel
+    required />
+    <label for="lastName">Last Name</label>
+    <input id="lastName"
+    name="lastName"
+    class="form-control"
+    ngModel
+    required />
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      email
+      required
+    />
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      minlength="6"
+      required
+    />
+
+    <p>Have an account?</p>
+    <!-- <button class="btn btn-primary" type="submit" [disabled]="!authFormRef.valid">
+      {{ isLoginMode ? "Sign In" : "Sign Up" }}
+    </button> -->
+
+    <!-- <a style="cursor: pointer;" (click)="onSwitchAuthMode()">
+      Login
+    </a>  -->
+    <button class="btn btn-primary" type="submit">
+      {{ isLoginMode ? "Sign In" : "Sign Up" }}
+    </button>
+    |
+    <button class="btn btn-primary" type="button" (click)="onSwitchAuthMode()">
+      Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+    </button>
+  </form>
+  <p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
+</div>
+</ng-template>
+
